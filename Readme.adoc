@@ -1,0 +1,26 @@
+= GABAergic disinhibition from the BNST to PNOCARC neurons promotes HFD-induced hyperphagia
+:toc:
+:name: gabaergic_disinhibition_bnst_pnocarc_hfd_hyperphagia
+
+## Overview
+
+This repository contains the calcium imaging data analysis and figures for the paper titled "GABAergic disinhibition from the BNST to PNOCARC neurons promotes HFD-induced hyperphagia".
+
+## Reproduce the Results
+
+### Prerequisites
+
+- R version 4.3.1
+- Docker (optional)
+- Singularity (optional for HPC environments)
+
+### Steps
+
+1. **Environment Setup**: To ensure reproducibility, it is recommended to use the `renv` environment provided in this repository. This ensures that all necessary R packages and their specific versions are installed.
+
+2. **Using Docker**: For those preferring Docker, the `mytidyverse-4.3.1-2` Docker container is available. It contains all the required dependencies pre-installed. Pull the Docker image using the following command: `docker pull paulklemm/mytidyverse:4.3.1-2`. You can then run the container locally or use it in a High-Performance Computing (HPC) environment with Singularity.
+
+3. **Update project path**: Make sure you update the `root` path in `analysis/pnoc/_targets.R` to the path where the repository is located on your system.
+
+4. **Running the Analysis**: To reproduce the results, execute the plots.Rmd R Markdown file. This file contains all the necessary code to generate the figures and results presented in the paper.
+If you are using the makefile for automation, ensure to adjust the run command according to your setup (local, Docker, or Singularity).

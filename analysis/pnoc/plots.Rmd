@@ -1,0 +1,112 @@
+---
+title: GABAergic disinhibition from the BNST to PNOCARC neurons promotes HFD-induced hyperphagia
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: "hide"
+    fig_width: 10
+    fig_height: 7
+params:
+  dev: FALSE
+---
+
+```{r setup, include = FALSE}
+library(targets)
+library(magrittr)
+source("functions.R")
+# Do not print any console output
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+print_all <- !params$dev
+rmyknife::make()
+rmyknife::set_ggplot_defaults()
+```
+
+Calcium imaging data analysis and figures for the paper "GABAergic disinhibition from the BNST to PNOCARC neurons promotes HFD-induced hyperphagia".
+
+## Calcium Imaging Analysis {.tabset}
+
+### Changelog
+
+2024-04-04
+  - Created public repo for calcium imaging data analysis and figures
+
+### Figure 3
+
+#### Figure 3D
+
+```{r fig3d, eval=print_all}
+tar_read(lineplot_pattern_neurons_intervention)
+```
+
+#### Figure 3E
+
+```{r fig3e, eval=print_all}
+tar_read(plot_neurons_intervention_pattern_percentage)
+```
+
+#### Figure 3F
+
+```{r fig3f, eval=print_all}
+tar_read(plot_heatmap_neuron_intervention_paper)
+```
+
+#### Figure 3G
+
+```{r fig3g, eval=print_all}
+tar_read(plot_zscores_intervention_per_pattern_refeeding)
+```
+
+### Figure 4
+
+#### Figure 4B
+
+```{r fig4b, eval=print_all}
+tar_read(lineplot_pattern_neurons_gastric_infusion_ensure)
+```
+
+#### Figure 4C
+
+```{r fig4c, eval=print_all}
+tar_read(plot_neurons_gastric_infusion_narrowed_pattern_percentage)
+```
+
+#### Figure 4D
+
+```{r fig4d, eval=print_all}
+tar_read(plot_zscore_gastric_infusion_narrowed_ggbetweenstats)
+```
+
+#### Figure 4E
+
+```{r fig4e, eval=print_all}
+tar_read(plot_neurons_gastric_infusion_narrowed_delta_baseline_vs_postgi)
+```
+
+#### Figure 4F
+
+```{r fig4f, eval=print_all}
+tar_read(plot_tiled_heatmap_gastric_infusion_ensure)
+```
+
+#### Figure 4G
+
+```{r fig4g, eval=print_all}
+tar_read(plot_zscores_gastric_infusion_narrowed_per_pattern_ensure_combined)
+```
+
+### SEM's
+
+```{r sems, eval=print_all}
+tar_read(sems_paper) %>%
+  knitr::kable()
+```
+
+
+### Targets Dependency Graph
+
+```{r visnetwork}
+# Print only when new targets were made or we have production output
+if (print_all) {
+  tar_visnetwork()
+}
+```
