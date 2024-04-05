@@ -1,4 +1,7 @@
 = GABAergic disinhibition from the BNST to PNOCARC neurons promotes HFD-induced hyperphagia
+
+image::https://zenodo.org/badge/782413153.svg[https://zenodo.org/doi/10.5281/zenodo.10931409]
+
 :toc:
 :name: gabaergic_disinhibition_bnst_pnocarc_hfd_hyperphagia
 
